@@ -65,3 +65,18 @@ export default App;
 - 여기서 return해주는 구문은 `jsx` 라는 문법이다.(반드시 return문 있어야함) html과 형식이 비슷하지만, js에서 class는 예약어라서 className="" 형식을 따라야함.  
 - jsx는 하나의 태그만 만들 수 있다. 여러개의 태그를 반환하고싶은 경우, 가장 바깥에 빈 태그로 감싸준다. 
 
+## CSS Module 
+### 장점 
+- 클래스명이 충돌하는 단점을 극복할 수 있음 
+- 컴포넌트 단위로 스타일을 적용할때 유용함 
+
+### 사용법 
+- 파일명 지정 
+> 컴포넌트명.module.css 
+
+- 적용하는법 
+``` javascript
+import styles from 'module.css 경로'  
+...
+<div className={styles.box} />
+```
