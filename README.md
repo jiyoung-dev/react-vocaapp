@@ -80,3 +80,7 @@ import styles from 'module.css 경로'
 ...
 <div className={styles.box} />
 ```
+
+## 이벤트 핸들링 
+### 이벤트 사용할때 주의사항 
+- 이벤트명은 카멜표기법으로 작성한다. 

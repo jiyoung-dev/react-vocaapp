@@ -6,25 +6,39 @@ const Hello = () => {
 export default Hello;
 */
 
-import World from "./World";
-import styles from './Hello.module.css';
-
 export default function Hello() {
+
+    function showName() {
+        console.log("Jiyoung");
+    }
+
+    function showAge(age) {
+        console.log(age);
+    }
+
+    function showText(txt) {
+        console.log(txt);
+    }
+
+    // 이벤트 이름은 카멜표기법으로 작성 (ex. onClick, onKeyup, onChange, ...)
     return (
-        <>
-            <p
-                style = {{
-                    color: "#f00",
-                    borderRight:  "12px solid #000",
-                    marginBottom: "30px",
-                    opacity: 0.5,
+        <div>
+            <h1>Hello</h1>
+            <button onClick={showName}>Show name</button>
+            <button
+                onClick={() => {
+                    showAge(20);
                 }}
-                
             >
-                Hello!!
-            </p>
-            <World/>
-            <div className={styles.box}> Hello~ </div>
-        </>
+                Show age
+            </button>
+            <input
+                type="text" 
+                onChange={(e) => {
+                    const txt = e.target.value
+                    showText(txt);
+                }}
+            />
+        </div>
     ); 
 }
