@@ -84,3 +84,22 @@ import styles from 'module.css 경로'
 ## 이벤트 핸들링 
 ### 이벤트 사용할때 주의사항 
 - 이벤트명은 카멜표기법으로 작성한다. 
+
+## 리액트 훅 
+> Hook은 함수형 컴포넌트가 클래스형 컴포넌트의 기능을 사용할 수 있도록 해주는 기능이다. 대표적으로, useState와 useEffect를 사용해서 클래스 컴포넌트에서 쓰던 state와 lifecycle 기능들을 함수형에서도 쓸수 있게 된것.  
+### useState 사용법 
+1. import 하기 
+```javascript
+import { useState } from "react";
+```
+
+2. useState 선언 
+```javascript
+const [name, setName] = useState();
+```
+- useState()는 호출되면 배열을 반환한다. 
+- 첫번째 인자값은 상태값이고, 두번째는 상태를 업데이트해주는 함수역할. 
+  - setName()에 파라미터를 넣어 호출하면 그 파라미터로 name 값이 바뀌게되고 컴포넌트가 렌더링된다.
+- `useState("Mike");` 이렇게 초기값을 세팅해줄 수도있다. 이 초기값은 첫번째 랜더링 시에 딱한번 사용됨.  
+
+
