@@ -7,24 +7,39 @@ export default Hello;
 */
 
 import { useState } from "react";
+import UserName from "./UserName";
 
-export default function Hello() {
-
-    //let name = "Jiyoung";  // 여기서 name은 state가 아닌, 단순히 변수이다. 
+export default function Hello({ age }) {  // {age} = props / age = props.age
     const [name, setName] = useState("Jiyoung");
-
-    function changeName() {
-        const newName = name === "Jiyoung" ? "Nayoung" : "Jiyoung";
-        console.log(newName);
-        //document.getElementById("name").innerHTML = name;  // 이렇게 직접 넣어주지 않는이상, 리액트는 인식하지 못하여 UI를 업데이트해주지 못한다. => state를 사용하자.
-        setName(newName);
-    }
+    const [newAge, setAge] = useState(age);
+    const msg = newAge > 19 ? "Adult." : "Minor.";
 
     return (
         <div>
-            <h1>State</h1>
-            <h2 id="name">{name}</h2>
-            <button onClick={changeName}>Change</button>
+            <h2 id="name">{name}({newAge}) : {msg}</h2>
+            <UserName name={name} age={newAge}/>
+            <button 
+                onClick={() => {
+                    setName(name === "Jiyoung" ? "Nayoung" : "Jiyoung");
+                    
+                }}
+            >
+                Change
+            </button>
+            <button
+                onClick={() => {
+                    setAge(newAge + 1);
+                }}
+            >
+                +
+            </button>
+            <button
+                onClick={() => {
+                    setAge(newAge - 1);
+                }}
+            >
+                -
+            </button>
         </div>
     ); 
 }

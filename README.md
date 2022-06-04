@@ -102,4 +102,8 @@ const [name, setName] = useState();
   - setName()에 파라미터를 넣어 호출하면 그 파라미터로 name 값이 바뀌게되고 컴포넌트가 렌더링된다.
 - `useState("Mike");` 이렇게 초기값을 세팅해줄 수도있다. 이 초기값은 첫번째 랜더링 시에 딱한번 사용됨.  
 
-
+## Props 사용법 
+> props는 부모 컴포넌트가 자식 컴포넌트에게 값을 전달할때 사용하는것임. Read Only이다.   
+- props는 `<ComponentName prop1={value1} prop2={value2} ... />` 형태로 컴포넌트를 부를때 함께 지정해준다. 
+- props를 받아서 사용할때는 `function(props)` 로 받아와 함수 내부에서 `props.prop1`, `props.prop2` 이런식으로 사용해주거나, `function({ prop1, prop2 })` 이렇게 받아와서 `prop1`, `prop2` 이런식으로 간단하게 사용할수도 있다.  
+- 자식 컴포넌트 안에서 props 값들을 변경하고싶으면 state 함수를 만들어주면 된다. 화면에서 어떤 데이터를 갱신하고자 할때, 리액트에서는 props와 state 두가지를 함께 자주사용함. 
