@@ -2,15 +2,26 @@
  * 특정 날짜를 클릭했을때 단어들이 나오는 화면 컴포넌트
 */
 
-import dummy from "../db/data.json";
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Word from "./Word";
 
 export default function Day() {
     const { day } = useParams();
-    console.log({ day });
-    const wordList = dummy.words.filter(word => word.day === Number(day));
+    const [words, setWords] = useState([]);  // 더미데이터 대신 words state 만들기 
+    const wordList = words.filter(word => word.day === Number(day));
     
+    useEffect(() => {
+        // API 비동기 통신을 위해 fetch() 사용. 
+        fetch(`http://localhost:3001/words?day=${day}`)
+        .then(res => {
+            return res.json()
+        })
+        .then(data => {
+            setWords(data)
+        })
+    }, [day]);  // day가 변경되면 새로운 정보를 불러오도록 [day] 로 변경
+
     return (
         <>
             <h2>Day {day}</h2>
