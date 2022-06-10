@@ -149,3 +149,30 @@ export default App;
 - import하기: `import { useParams } from "react-router-dom";`
 - 저장: `let { params } = useParams();` 
 - 사용: `~url/test/1, ~url/test/2` 에서 전달해주는 파라미터값에 따라 다른 라우트 페이지를 호출할 수 있게된다.  
+
+## JSON Server 
+> json server는 아주 짧은 시간에 REST API를 구축해주는 라이브러리다. 간단히 DB서버가 필요할때 사용하면 적당한 도구이다. 
+### 설치 
+```cmd
+npm install -g json-server
+```
+### json 파일생성 
+> 데이터베이스로 이용할 json 파일을 만든다. 
+
+### 실행 
+```cmd
+json-server --watch xxx.json --port 3001  
+```
+- 이때 json 파일의 상대경로를 적어주거나, 파일이 있는 위치안에서 명령을 실행한다. 
+- 위와같이 실행해줘야 REST API 서버가 열리게된다. 
+
+## Custom Hooks
+> 커스텀 훅은 개발자가 직접 만든 hook이다. 중복되는 로직을 하나의 훅 컴포넌트로 만들어 사용한다. 보통, Input과 Fetch를 관리할때 자주 쓰인다.                 
+- 사용하는 목적
+  1. 코드가 간결해지고 가독성이 좋아짐. 
+  2. 필요없는 반복을 줄이고, 재사용성을 높인다. 
+  3. 수정사항이 있으면 커스텀 훅만 수정하면 되므로, 유지보수에 용이하다. 
+- 사용법 
+  1. 리액트의 내장훅과 마찬가지로 훅 이름은 use로 시작한다.  
+  2. 보통 hooks라는 디렉토리를 만들어 커스텀 훅을 관리함. 
+  3. 커스텀 훅은 JSX가 아닌 배열 또는 객체를 return 해야한다.  
