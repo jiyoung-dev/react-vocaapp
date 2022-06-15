@@ -1,16 +1,18 @@
 import { useRef } from "react";
+import { useNavigate } from 'react-router-dom';
 import useFetch from "../hooks/useFetch";
 
 export default function CreateWord() {
 
     const days = useFetch("http://localhost:3001/days");
+    const navigate = useNavigate();
 
     function onSubmit(e) {
         e.preventDefault();
 
-        console.log(engRef.current.value);
-        console.log(korRef.current.value);
-        console.log(dayRef.current.value);
+        // console.log(engRef.current.value);
+        // console.log(korRef.current.value);
+        // console.log(dayRef.current.value);
 
         fetch(`http://localhost:3001/words/`, {  // fetch 두번째 인자에 요청의 옵션들을 넣는다. 
             method: "POST",
@@ -27,6 +29,7 @@ export default function CreateWord() {
         .then(res => {
             if(res.ok) {
                 alert("생성이 완료되었습니다.");
+                navigate(`/day/${dayRef.current.value}`);
             }
         })
     }
