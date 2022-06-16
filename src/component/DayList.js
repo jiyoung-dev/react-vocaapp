@@ -9,6 +9,10 @@ export default function DayList() {
 
     const days = useFetch("http://localhost:3001/days");  // useFetch() 라는 별도의 커스텀 훅을 생성해 API로 데이터를 받아오는 부분을 단순화시킴.  
 
+    if(days.length === 0) {
+        return <span>Loading...</span>
+    }
+
     return (
         <ul className="list_day">
             {days.map(day => (
